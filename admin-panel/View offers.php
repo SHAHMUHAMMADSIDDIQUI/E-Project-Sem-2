@@ -2,6 +2,10 @@
 include('connection.php');
 session_start();
 include('aside.php');
+if(isset($_SESSION['username'])==null){
+    echo"<script>window.location.href='login.php'</script>";
+}else{
+
 ?>
 
 <!-- Begin Page Content -->
@@ -35,7 +39,7 @@ include('aside.php');
                                     </p>
                                     <a href="update_deal.php?ID=<?php echo $row[0]; ?>"><button type="button"
                                             class="btn btn-primary">Update</button></a>
-                                    <a href="View offers.php?ID=<?php echo $row[0]; ?>"><button type="button"
+                                    <a href="View offers.php?ID=<?php echo $row[0]; ?>"  onclick="return confirm('Are u Sure You Want To Delete This Deal')"><button type="button"
                                             class="btn btn-Danger">Delete</button></a>
                                 </div>
                             </div>
@@ -102,4 +106,4 @@ include('aside.php');
             </div>
         </div>
     </div>
-</div>
+</div><?php }?>

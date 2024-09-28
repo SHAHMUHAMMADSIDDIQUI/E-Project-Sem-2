@@ -34,14 +34,9 @@
 
         <!-- Sidebar -->
         <ul class="navbar-nav bg-gradient-primary sidebar sidebar-dark accordion" id="accordionSidebar">
-
+            <img src="Black_and_White_Modern_Illustrative_Barbershop_Logo-removebg-preview.png" style="height: 180px;width: 100%;" alt="">
             <!-- Sidebar - Brand -->
-            <a class="sidebar-brand d-flex align-items-center justify-content-center" href="index.html">
-                <div class="sidebar-brand-icon rotate-n-15">
-                    <i class="fas fa-laugh-wink"></i>
-                </div>
-                <div class="sidebar-brand-text mx-3">SB Admin <sup>2</sup></div>
-            </a>
+            <br>
 
             <!-- Divider -->
             <hr class="sidebar-divider my-0">
@@ -55,7 +50,7 @@
             <?php
 
             if (isset($_SESSION['userrole']) && $_SESSION['userrole'] == 'Admin') {
-                ?>
+            ?>
                 <!-- Divider -->
                 <hr class="sidebar-divider">
 
@@ -406,32 +401,33 @@
 
                         <!-- Nav Item - User Information -->
                         <li class="nav-item dropdown no-arrow">
-                            <a class="nav-link dropdown-toggle" href="#" id="userDropdown" role="button"
-                                data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+                            <div class="nav-link " id="userDropdown" role="button"
+                                aria-haspopup="true" aria-expanded="false">
                                 <span
                                     class="mr-2 d-none d-lg-inline text-gray-600 small"><?php echo $_SESSION['username']; ?></span>
                                 <img class="img-profile rounded-circle" src="img/undraw_profile.svg">
+                                <form action="" method="post">
+                                    <div style="position: relative; left: 20px; top: 7px;">
+                                        <button type="submit" name="logout_btn" onclick="return confirm('Are u Sure You Want To Logout')" class="btn btn-success">Logout</button>
+                                        <?php
+                                        if (isset($_POST['logout_btn'])) {
+                                            unset($_SESSION['username']);
+                                            unset($_SESSION['userrole']);
+                                            session_destroy();
+                                            echo "<script>window.location.href='login.php'</script>";
+                                        }
+                                        ?>
+                                    </div>
+                                </form>
+                            </div>
+                            <a class="dropdown-item" href="index.php" data-toggle="modal" data-target="#logoutModal">
+
                             </a>
                             <!-- Dropdown - User Information -->
                             <div class="dropdown-menu dropdown-menu-right shadow animated--grow-in"
                                 aria-labelledby="userDropdown">
-                                <a class="dropdown-item" href="#">
-                                    <i class="fas fa-user fa-sm fa-fw mr-2 text-gray-400"></i>
-                                    Profile
-                                </a>
-                                <a class="dropdown-item" href="#">
-                                    <i class="fas fa-cogs fa-sm fa-fw mr-2 text-gray-400"></i>
-                                    Settings
-                                </a>
-                                <a class="dropdown-item" href="#">
-                                    <i class="fas fa-list fa-sm fa-fw mr-2 text-gray-400"></i>
-                                    Activity Log
-                                </a>
-                                <div class="dropdown-divider"></div>
-                                <a class="dropdown-item" href="#" data-toggle="modal" data-target="#logoutModal">
-                                    <i class="fas fa-sign-out-alt fa-sm fa-fw mr-2 text-gray-400"></i>
-                                    Logout
-                                </a>
+
+
                             </div>
                         </li>
 

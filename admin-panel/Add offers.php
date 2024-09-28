@@ -2,6 +2,10 @@
 include('connection.php');
 session_start();
 include('aside.php');
+if(isset($_SESSION['username'])==null){
+    echo"<script>window.location.href='login.php'</script>";
+}else{
+
 ?>
 
 <!-- Begin Page Content -->
@@ -112,4 +116,4 @@ include('aside.php');
             </div>
         </div>
     </div>
-</div>
+</div><?php  }?>

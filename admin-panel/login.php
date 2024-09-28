@@ -1,10 +1,10 @@
 <?php
 include('connection.php');
 session_start();
-/* if(isset($_SESSION['username'])!=null){
+if(isset($_SESSION['username'])!=null){
     echo"<script>window.location='index.php'</script>";
 }
-else{ */
+else{
 ?>
 <!DOCTYPE html>
 <html lang="en">
@@ -47,7 +47,7 @@ else{ */
                             <div class="col-lg-6">
                                 <div class="p-5">
                                     <div class="text-center">
-                                        <h1 class="h4 text-gray-900 mb-4">Welcome Back!</h1>
+                                        <h1 class="h4 text-gray-900 mb-4">Login Account!</h1>
                                     </div>
                                     <form method="post" class="user">
                                         <div class="form-group">
@@ -80,9 +80,9 @@ else{ */
                                     </form>
 
                                     <hr>
-                                    <div class="text-center">
+                                   <!--  <div class="text-center">
                                         <a class="small" href="forgot-password.html">Forgot Password?</a>
-                                    </div>
+                                    </div> -->
                                     <div class="text-center">
                                         <a class="small" href="register.php">Create an Account!</a>
                                     </div>
@@ -110,4 +110,4 @@ else{ */
 
 </body>
 
-</html><?php /*  } */ ?>
+</html><?php  } ?>
